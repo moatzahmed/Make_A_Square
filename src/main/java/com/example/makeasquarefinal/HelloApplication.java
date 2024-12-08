@@ -1,4 +1,4 @@
-package com.example.makeasquare;
+package com.example.makeasquarefinal;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
