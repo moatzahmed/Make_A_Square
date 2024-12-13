@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.Image?>
@@ -8,6 +9,8 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.makeasquarefinal.HelloController">
    <children>
@@ -17,8 +20,14 @@
                <children>
                   <HBox alignment="CENTER" layoutX="222.0" layoutY="44.0" prefHeight="100.0" prefWidth="200.0" spacing="20" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Button fx:id="clearGridButton" mnemonicParsing="false" onAction="#clearGrid" text="CLEAR" />
-                        <Button fx:id="debugButton" mnemonicParsing="false" onAction="#myFun" text="DEBUG" />
+                        <Button fx:id="clearGridButton" mnemonicParsing="false" onAction="#clearGrid" style="-fx-background-color: #0D6EFD;" text="CLEAR" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Button>
+                        <Button fx:id="debugButton" mnemonicParsing="false" onAction="#myFun" style="-fx-background-color: #0D6EFD;" text="SOLVE" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Button>
                         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10">
                            <children>
                               <AnchorPane prefHeight="50.0" prefWidth="100.0">
@@ -30,8 +39,14 @@
                                     </ImageView>
                                  </children>
                               </AnchorPane>
-                              <Button fx:id="addIPieceButton" mnemonicParsing="false" onAction="#addIPiece" text="Add" />
-                              <Button fx:id="removeIPieceButton" mnemonicParsing="false" onAction="#removeIPiece" text="remove" />
+                              <Button fx:id="addIPieceButton" mnemonicParsing="false" onAction="#addIPiece" style="-fx-background-color: #0D6EFD;" text="Add" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Button>
+                              <Button fx:id="removeIPieceButton" mnemonicParsing="false" onAction="#removeIPiece" style="-fx-background-color: #0D6EFD;" text="remove" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Button>
                            </children></VBox>
                         <VBox alignment="CENTER" layoutX="349.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" spacing="10">
                            <children>
@@ -44,8 +59,14 @@
                                     </ImageView>
                                  </children>
                               </AnchorPane>
-                              <Button fx:id="addZPieceButton" mnemonicParsing="false" onAction="#addZPiece" text="Add" />
-                              <Button fx:id="removeZPieceButton" mnemonicParsing="false" onAction="#removeZPiece" text="remove" />
+                              <Button fx:id="addZPieceButton" mnemonicParsing="false" onAction="#addZPiece" style="-fx-background-color: #0D6EFD;" text="Add" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Button>
+                              <Button fx:id="removeZPieceButton" mnemonicParsing="false" onAction="#removeZPiece" style="-fx-background-color: #0D6EFD;" text="remove" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Button>
                            </children>
                         </VBox>
                         <VBox alignment="CENTER" layoutX="409.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" spacing="10">
@@ -59,8 +80,14 @@
                                     </ImageView>
                                  </children>
                               </AnchorPane>
-                              <Button fx:id="addJPieceButton" mnemonicParsing="false" onAction="#addJPiece" text="Add" />
-                              <Button fx:id="removeJPieceButton" mnemonicParsing="false" onAction="#removeJPiece" text="remove" />
+                              <Button fx:id="addJPieceButton" mnemonicParsing="false" onAction="#addJPiece" style="-fx-background-color: #0D6EFD;" text="Add" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Button>
+                              <Button fx:id="removeJPieceButton" mnemonicParsing="false" onAction="#removeJPiece" style="-fx-background-color: #0D6EFD;" text="remove" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Button>
                            </children>
                         </VBox>
                         <VBox alignment="CENTER" layoutX="469.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" spacing="10">
@@ -74,8 +101,14 @@
                                     </ImageView>
                                  </children>
                               </AnchorPane>
-                              <Button fx:id="addTPieceButton" mnemonicParsing="false" onAction="#addTPiece" text="Add" />
-                              <Button fx:id="removeTPieceButton" mnemonicParsing="false" onAction="#removeTPiece" text="remove" />
+                              <Button fx:id="addTPieceButton" mnemonicParsing="false" onAction="#addTPiece" style="-fx-background-color: #0D6EFD;" text="Add" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Button>
+                              <Button fx:id="removeTPieceButton" mnemonicParsing="false" onAction="#removeTPiece" style="-fx-background-color: #0D6EFD;" text="remove" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Button>
                            </children>
                         </VBox>
                         <VBox alignment="CENTER" layoutX="602.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" spacing="10">
@@ -89,8 +122,14 @@
                                     </ImageView>
                                  </children>
                               </AnchorPane>
-                              <Button fx:id="addOPieceButton" mnemonicParsing="false" onAction="#addOPiece" text="Add" />
-                              <Button fx:id="removeOPieceButton" mnemonicParsing="false" onAction="#removeOPiece" text="remove" />
+                              <Button fx:id="addOPieceButton" mnemonicParsing="false" onAction="#addOPiece" style="-fx-background-color: #0D6EFD;" text="Add" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Button>
+                              <Button fx:id="removeOPieceButton" mnemonicParsing="false" onAction="#removeOPiece" style="-fx-background-color: #0D6EFD;" text="remove" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></Button>
                            </children>
                         </VBox>
                      </children>
@@ -99,11 +138,11 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <SplitPane dividerPositions="0.15" layoutX="86.0" layoutY="50.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <SplitPane dividerPositions="0.1" layoutX="86.0" layoutY="50.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
-                              <VBox fx:id="trackingVbox" alignment="CENTER" layoutX="14.0" layoutY="34.0" prefHeight="200.0" prefWidth="100.0" spacing="20" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <VBox fx:id="trackingVbox" alignment="CENTER" layoutX="14.0" layoutY="34.0" prefHeight="200.0" prefWidth="100.0" spacing="20" style="-fx-background-color: #eeee;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -111,13 +150,61 @@
                               <VBox alignment="CENTER" layoutX="220.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" spacing="50" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
                                      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="150">
-                                         <GridPane fx:id="gridPane" />
-                                       <GridPane fx:id="gridPane1"  layoutX="339.0" layoutY="10.0"  />
+                                       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                          <children>
+                                               <GridPane fx:id="gridPane" />
+                                             <Text fx:id="firstGridPaneText" strokeType="OUTSIDE" strokeWidth="0.0" text="The Text">
+                                                <VBox.margin>
+                                                   <Insets top="10.0" />
+                                                </VBox.margin>
+                                                <font>
+                                                   <Font name="System Bold" size="18.0" />
+                                                </font>
+                                             </Text>
+                                          </children>
+                                       </VBox>
+                                       <VBox alignment="CENTER" layoutX="233.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                                          <children>
+                                             <GridPane fx:id="gridPane1" />
+                                             <Text fx:id="secondGridPaneText" strokeType="OUTSIDE" strokeWidth="0.0" text="The Text">
+                                                <VBox.margin>
+                                                   <Insets top="10.0" />
+                                                </VBox.margin>
+                                                <font>
+                                                   <Font name="System Bold" size="18.0" />
+                                                </font>
+                                             </Text>
+                                          </children>
+                                       </VBox>
                                      </HBox>
                                     <HBox alignment="CENTER" layoutX="10.0" layoutY="144.0" prefHeight="100.0" prefWidth="200.0" spacing="150">
                                        <children>
-                                          <GridPane fx:id="gridPane2"  />
-                                          <GridPane fx:id="gridPane3"  layoutX="339.0" layoutY="10.0" />
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                             <children>
+                                                <GridPane fx:id="gridPane2" />
+                                                <Text fx:id="thirdGridPaneText" strokeType="OUTSIDE" strokeWidth="0.0" text="The Text">
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" layoutX="233.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                                             <children>
+                                                <GridPane fx:id="gridPane3" />
+                                                <Text fx:id="fourthGridPaneText" strokeType="OUTSIDE" strokeWidth="0.0" text="The Text">
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </VBox>
                                        </children>
                                     </HBox>
                                  </children>

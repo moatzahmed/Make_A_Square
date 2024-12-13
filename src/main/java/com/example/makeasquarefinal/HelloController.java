@@ -12,6 +12,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
@@ -87,6 +88,14 @@ public class HelloController {
     private GridPane gridPane2;
     @FXML
     private GridPane gridPane3;
+    @FXML
+    private Text firstGridPaneText;
+    @FXML
+    private Text secondGridPaneText;
+    @FXML
+    private Text thirdGridPaneText;
+    @FXML
+    private Text fourthGridPaneText;
 
 
     public void addIPiece() {
@@ -98,7 +107,7 @@ public class HelloController {
         ImageView iPieceView = new ImageView();
         Image image = new Image(getClass().getResourceAsStream("/puzzle_pieces/Tetris_piece_I.png"));
         iPieceView.setImage(image);
-        iPieceView.setFitWidth(100);
+        iPieceView.setFitWidth(125);
         iPieceView.setPreserveRatio(true);
         iPieceView.setSmooth(true);
         trackingVbox.getChildren().add(iPieceView);
@@ -177,7 +186,7 @@ public class HelloController {
         ImageView oPieceView = new ImageView();
         Image image = new Image(getClass().getResourceAsStream("/puzzle_pieces/Tetris_piece_O.png"));
         oPieceView.setImage(image);
-        oPieceView.setFitWidth(50);
+        oPieceView.setFitWidth(75);
         oPieceView.setPreserveRatio(true);
         oPieceView.setSmooth(true);
         trackingVbox.getChildren().add(oPieceView);
@@ -382,6 +391,10 @@ public class HelloController {
         initializeGridPane(gridPane1);
         initializeGridPane(gridPane2);
         initializeGridPane(gridPane3);
+        firstGridPaneText.setVisible(false);
+        secondGridPaneText.setVisible(false);
+        thirdGridPaneText.setVisible(false);
+        fourthGridPaneText.setVisible(false);
     }
 
     public void initializeGridPane(GridPane gridPane) {
@@ -475,12 +488,12 @@ public class HelloController {
         fillPuzzleStates();
         MakeASquare MAS = new MakeASquare(gridPane, numberOfPieces, "firstGrid");
         t = new Thread(() -> {
-                MAS.go(0,puzzleStates);
+            MAS.go(0,puzzleStates);
         });
         t.start();
         MakeASquare MAS1 = new MakeASquare(gridPane1, numberOfPieces, "secondGrid");
         t1 = new Thread(() -> {
-                MAS1.go(0, puzzleStates);
+            MAS1.go(0, puzzleStates);
         });
         t1.start();
         MakeASquare MAS2 = new MakeASquare(gridPane2, numberOfPieces, "SecondGrid");
@@ -490,6 +503,68 @@ public class HelloController {
         t3 = new Thread(() -> {MAS3.go(0,puzzleStates);});
         t3.start();
         printFourD(puzzleStates);
+        Thread waitingThread = new Thread(() -> {
+            try {
+                t.join();
+                t1.join();
+                t2.join();
+                t3.join();
+                System.out.println(MAS.isSolutionFound + " " + MAS1.isSolutionFound + " " + MAS2.isSolutionFound + " " + MAS3.isSolutionFound);
+                Platform.runLater(()->{
+                    if(MAS.isSolutionFound)
+                    {
+                        firstGridPaneText.setText("Solution Found");
+                        firstGridPaneText.setVisible(true);
+                        firstGridPaneText.setFill(Color.GREEN);
+                    }
+                    else
+                    {
+                        firstGridPaneText.setText("No solution found");
+                        firstGridPaneText.setVisible(true);
+                        firstGridPaneText.setFill(Color.RED);
+                    }
+                    if(MAS1.isSolutionFound)
+                    {
+                        secondGridPaneText.setText("Solution Found");
+                        secondGridPaneText.setVisible(true);
+                        secondGridPaneText.setFill(Color.GREEN);
+                    }
+                    else
+                    {
+                        secondGridPaneText.setText("No solution found");
+                        secondGridPaneText.setVisible(true);
+                        secondGridPaneText.setFill(Color.RED);
+                    }
+                    if(MAS2.isSolutionFound)
+                    {
+                        thirdGridPaneText.setText("Solution Found");
+                        thirdGridPaneText.setVisible(true);
+                        thirdGridPaneText.setFill(Color.GREEN);
+                    }
+                    else
+                    {
+                        thirdGridPaneText.setText("No solution found");
+                        thirdGridPaneText.setVisible(true);
+                        thirdGridPaneText.setFill(Color.RED);
+                    }
+                    if(MAS3.isSolutionFound)
+                    {
+                        fourthGridPaneText.setText("Solution Found");
+                        fourthGridPaneText.setVisible(true);
+                        fourthGridPaneText.setFill(Color.GREEN);
+                    }
+                    else
+                    {
+                        fourthGridPaneText.setText("No solution found");
+                        fourthGridPaneText.setVisible(true);
+                        fourthGridPaneText.setFill(Color.RED);
+                    }
+                });
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        waitingThread.start();
     }
     @FXML
     Button clearGridButton;
@@ -500,6 +575,10 @@ public class HelloController {
         resetGrid(gridPane2);
         resetGrid(gridPane3);
         puzzleStates.clear();
+        firstGridPaneText.setVisible(false);
+        secondGridPaneText.setVisible(false);
+        thirdGridPaneText.setVisible(false);
+        fourthGridPaneText.setVisible(false);
     }
     public void resetGrid(GridPane gridPane) {
         gridPane.getChildren().clear();

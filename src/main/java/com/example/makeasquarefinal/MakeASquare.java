@@ -1,6 +1,7 @@
 package com.example.makeasquarefinal;
 
 import javafx.application.Platform;
+import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -32,6 +33,8 @@ public class MakeASquare {
     private int numberOfPieces;
     private int currentColor = 0;
     private GridPane gridPane;
+
+    public boolean isSolutionFound;
 
 
     public MakeASquare(GridPane GGPane, int numberOfPieces, String fileName) {
@@ -188,7 +191,6 @@ public class MakeASquare {
     }
 
     public synchronized  void go(int stateIdx, List<List<List<List<Integer>>>> puzzlesStates) {
-        // Create a local copy of puzzlesStates for this thread
         List<List<List<List<Integer>>>> localPuzzlesStates = new ArrayList<>();
 
         for (List<List<List<Integer>>> state : puzzlesStates) {
@@ -203,6 +205,7 @@ public class MakeASquare {
         Collections.shuffle(localPuzzlesStates);
 
         processState(stateIdx, localPuzzlesStates);
+        checkIfSolutionFound();
     }
 
 
@@ -225,13 +228,7 @@ public class MakeASquare {
             for (int cnt2 = 0; cnt2 < cols; cnt2++) {
                 Rectangle cell = (Rectangle) getNodeByRowColumnIndex(i + cnt1, j + cnt2, gridPane);
                 if (cell.getFill() == Color.WHITE && puzzle.get(cnt1).get(cnt2) == myColor) {
-
                     cell.setFill(listOfColors.get(myColor));
-
-
-                    // Set the puzzle value into the grid cell
-                    //grid.get(i + cnt1).set(j + cnt2, puzzle.get(cnt1).get(cnt2));
-
                 }
 
             }
@@ -302,5 +299,21 @@ public class MakeASquare {
             newGrid.add(newRow);
         }
         return newGrid;
+    }
+    public void checkIfSolutionFound()
+    {
+        isSolutionFound = true;
+        for(int i = 0; i < 4; i++)
+        {
+            for(int j = 0; j < 4; j++)
+            {
+                Rectangle rectangle = (Rectangle)getNodeByRowColumnIndex(i, j, gridPane);
+                if(rectangle.getFill() == Color.WHITE)
+                {
+                    isSolutionFound = false;
+                    break;
+                }
+            }
+        }
     }
 }
